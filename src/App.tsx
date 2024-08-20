@@ -6,7 +6,7 @@ import FilterButton from './components/FilterButton';
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router basename='/test-dog-app'>
       <div className="app">
         <header>
           <h1>Dog Cards</h1>
@@ -15,6 +15,7 @@ const App: React.FC = () => {
         <main>
           <Routes>
             <Route path="/" element={<CardList />} />
+            <Route path='/test-dog-app/' element={<CardList />} />
             <Route path="/card/:id" element={<CardDetails />} />
           </Routes>
         </main>
