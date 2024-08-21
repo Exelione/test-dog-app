@@ -64,13 +64,24 @@
   padding: 10px;
   
 }
-
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2em;
+}
+.no-liked-cards {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
 .card-button {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.2em;
 }
+
 .like-button {
   color: #ccc;
   font-size: 1.5em;
@@ -129,7 +140,11 @@
 .card-details p {
   line-height: 1.6;
 }
-.back-button {
+.card-details-header{
+  display: flex;
+  justify-content: space-between;
+}
+.back-button, .next-dog-button {
   margin-bottom: 20px;
   padding: 10px 20px;
   background-color: #4CAF50;
@@ -140,10 +155,17 @@
   font-size: 16px;
   transition: background-color .3s linear;
 }
-.back-button:hover {
+.back-button:hover, .next-dog-button:hover {
   background-color: #2f6b32;
 }
 
+.no-liked-wrap{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  margin: auto;
+}
 
 .card-details .card-actions {
   margin-top: 20px;

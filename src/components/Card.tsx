@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton';
-import { useState } from 'react';
+
+import { deleteCard } from '../store/cardsSlice';
+import { useAppDispatch } from '../hooks';
 
 interface CardProps {
   id: string;
@@ -13,27 +15,17 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ id, imageUrl, title, description, isLiked }) => {
   const navigate = useNavigate();
-  const [isDeleted, setIsDeleted] = useState(false);
-
+  const dispatch = useAppDispatch();
+  
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!(e.target as HTMLElement).closest('.card-actions')) {
+      
       navigate(`/card/${id}`);
     }
   };
   const handleDelete = () => {
-    setIsDeleted(true);
+    dispatch(deleteCard(id));
   };
-  const handleReturnHome = () => {
-    navigate('/');
-  };
-  if (isDeleted) {
-    return (
-      <div className="deleted-card">
-        <p>Card deleted</p>
-        <button onClick={handleReturnHome}>Return Home</button>
-      </div>
-    );
-  }
 
   return (
     <div className="card" onClick={handleCardClick}>

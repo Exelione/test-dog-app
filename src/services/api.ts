@@ -17,10 +17,10 @@ export const dogApi = createApi({
             return headers;
         },
     }),
-    
+    keepUnusedDataFor: 60,
     endpoints: (builder) => ({
         getDogs: builder.query<Dog[], number>({
-            query: (limit = 10) => `images/search?limit=${limit}`
+            query: (limit = 12) => `images/search?limit=${limit}`
         }),
     }),
 })
